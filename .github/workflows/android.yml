@@ -26,12 +26,12 @@ jobs:
     - name: Upload debug apk file
       uses: actions/upload-artifact@v2
       with:
-        name: mlkit-material
+        name: mlkit-material-debug
         path: app/build/outputs/apk/debug/app-debug.apk
     - name: build release 
       run: ./gradlew assembleRelease
     - name: Upload release apk file
       uses: actions/upload-artifact@v2
       with:
-        name: mlkit-material
+        name: mlkit-material-release-unsigned
         path: app/build/outputs/apk/release/app-release-unsigned.apk
