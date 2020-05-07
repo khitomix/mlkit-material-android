@@ -28,10 +28,17 @@ jobs:
       with:
         name: mlkit-material-debug
         path: app/build/outputs/apk/debug/app-debug.apk
+    - name: copy keystore
+      env:
+        KEY_JKS: ${{ secrets.KEY_JKS }}
+        run: echo $KEY_JKS | base64 --decode --ignore-garbage > release.keystore
     - name: build release 
+      env:
+        KEY_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
+        ALIAS_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       run: ./gradlew assembleRelease
     - name: Upload release apk file
       uses: actions/upload-artifact@v2
       with:
         name: mlkit-material-release-unsigned
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        path: app/build/outputs/apk/release/app-release.apk
