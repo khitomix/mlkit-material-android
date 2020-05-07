@@ -36,7 +36,7 @@ jobs:
       env:
         KEY_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         ALIAS_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      run: ./gradlew assembleRelease && ./gradlew bundleRelease
+      run: ./gradlew assembleRelease && ./gradlew bundleRelease && find . -type f | xargs ls -lh
     - name: Upload release apk file
       uses: actions/upload-artifact@v2
       with:
