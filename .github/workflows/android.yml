@@ -40,5 +40,5 @@ jobs:
     - name: Upload release apk file
       uses: actions/upload-artifact@v2
       with:
-        name: mlkit-material-release-unsigned
+        name: mlkit-material-release
         path: app/build/outputs/apk/release/app-release.apk
