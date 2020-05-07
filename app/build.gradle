@@ -6,7 +6,7 @@ android {
     compileSdkVersion 29
     ndkVersion "21.0.6113669"
     defaultConfig {
-        applicationId "com.dcs-ai.firebase.ml.md"
+        applicationId "com.khitomix.firebase.ml.md"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
