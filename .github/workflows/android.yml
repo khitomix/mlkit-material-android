@@ -36,7 +36,7 @@ jobs:
       env:
         KEY_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         ALIAS_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      run: ./gradlew assembleRelease && ./gradlew bundleRelease && find . -type f | xargs ls -lh
+      run: ./gradlew assembleRelease && ./gradlew bundleRelease
     - name: Upload release apk file
       uses: actions/upload-artifact@v2
       with:
@@ -46,4 +46,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: mlkit-material-release-aab
-        path: app/build/outputs/bundle/release/app.aab
+        path: app/build/outputs/bundle/release/app-release.aab
