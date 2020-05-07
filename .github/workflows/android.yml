@@ -33,7 +33,7 @@ jobs:
         KEY_JKS: ${{ secrets.KEY_JKS }}
         KEY_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
         ALIAS_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: echo $KEY_JKS > release.keystore
+        run: echo $KEY_JKS | base64 --decode --ignore-garbage > release.keystore
     - name: build release 
       run: ./gradlew assembleRelease
     - name: Upload release apk file
