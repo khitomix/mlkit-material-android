@@ -31,7 +31,7 @@ jobs:
     - name: copy keystore
       env:
         KEY_JKS: ${{ secrets.KEY_JKS }}
-        run: echo $KEY_JKS | base64 --decode --ignore-garbage > release.keystore
+      run: echo $KEY_JKS | base64 --decode --ignore-garbage > release.keystore
     - name: build release 
       env:
         KEY_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
