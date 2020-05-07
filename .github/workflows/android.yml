@@ -21,10 +21,17 @@ jobs:
       env:
         GOOGLE_SERVICE: ${{ secrets.GOOGLE_SERVICE_JSON }}
       run: echo $GOOGLE_SERVICE | base64 --decode --ignore-garbage > ./app/google-services.json
-    - name: Build with Gradle
+    - name: build debug
       run: ./gradlew assembleDebug
-    - name: Upload apk file
+    - name: Upload debug apk file
       uses: actions/upload-artifact@v2
       with:
         name: mlkit-material
         path: app/build/outputs/apk/debug/app-debug.apk
+    - name: build release 
+      run: ./gradlew assembleRelease
+    - name: Upload release apk file
+      uses: actions/upload-artifact@v2
+      with:
+        name: mlkit-material
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
